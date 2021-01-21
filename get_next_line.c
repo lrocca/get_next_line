@@ -6,13 +6,19 @@
 /*   By: lrocca <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:02:16 by lrocca            #+#    #+#             */
-/*   Updated: 2021/01/20 18:43:33 by lrocca           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:10:55 by lrocca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int		verify_line(char **stack, char **line) // 0 not valid
+/*
+** Checks if line read is valid. 0 if not.
+** If it is, it closes the string substituting the new line with a null.
+** Duplicates the line to 'line', and the overflow to 'stack'.
+*/
+
+static int		verify_line(char **stack, char **line)
 {
 	char	*s;
 
@@ -25,6 +31,11 @@ static int		verify_line(char **stack, char **line) // 0 not valid
 	*stack = ft_strdup(s + 1);
 	return (1);
 }
+
+/*
+** Reads from fd until the EOF.
+** If the stack exists, we
+*/
 
 static	int		read_file(int fd, char *heap, char **stack, char **line)
 {
@@ -78,26 +89,26 @@ int				get_next_line(int fd, char **line)
 	return (1);
 }
 
-int	main(void)
-{
-	int		ret;
-	char	*line;
+// int				main(void)
+// {
+// 	int		ret;
+// 	char	*line;
 
-	line = 0;
-	ret = get_next_line(0, &line);
-	while (ret > 0)
-	{
-		write(1, line, ft_strlen(line));
-		write(1, "\n", 1);
-		free(line);
-		line = 0;
-		ret = get_next_line(0, &line);
-	}
-	if (ret == 0)
-	{
-		write(1, line, ft_strlen(line));
-		write(1, "\n", 1);
-		free(line);
-		line = 0;
-	}
-}
+// 	line = 0;
+// 	ret = get_next_line(0, &line);
+// 	while (ret > 0)
+// 	{
+// 		write(1, line, ft_strlen(line));
+// 		write(1, "\n", 1);
+// 		free(line);
+// 		line = 0;
+// 		ret = get_next_line(0, &line);
+// 	}
+// 	if (ret == 0)
+// 	{
+// 		write(1, line, ft_strlen(line));
+// 		write(1, "\n", 1);
+// 		free(line);
+// 		line = 0;
+// 	}
+// }

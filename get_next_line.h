@@ -6,14 +6,14 @@
 /*   By: lrocca <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:02:40 by lrocca            #+#    #+#             */
-/*   Updated: 2021/01/20 18:31:27 by lrocca           ###   ########.fr       */
+/*   Updated: 2021/01/21 11:26:04 by lrocca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFFER_SIZE 4
+//# define BUFFER_SIZE 4
 
 # include <stdlib.h>
 # include <unistd.h>

@@ -1,2 +1,6 @@
 *.out
 *.txt
+yours
+main*.c
+*.md
+.DS_Store
