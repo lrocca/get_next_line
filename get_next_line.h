@@ -6,24 +6,26 @@
 /*   By: lrocca <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:02:40 by lrocca            #+#    #+#             */
-/*   Updated: 2021/01/21 11:26:04 by lrocca           ###   ########.fr       */
+/*   Updated: 2021/01/21 18:29:47 by lrocca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-//# define BUFFER_SIZE 4
-
 # include <stdlib.h>
 # include <unistd.h>
 
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-char	*ft_strdup(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcat(char *d, const char *s, size_t size);
+typedef	struct	s_buf
+{
+	int				fd;
+	char			buffer[BUFFER_SIZE + 1];
+	struct s_buf	*next;
+}				t_buf;
 
-int		get_next_line(int fd, char **line);
+t_buf			*ft_lstnew(int fd);
+t_buf			*ft_findbuf(int fd, t_buf *curr);
+
+int				get_next_line(int fd, char **line);
 
 #endif
